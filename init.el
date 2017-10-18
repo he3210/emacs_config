@@ -23,6 +23,7 @@
 		      js2-mode
 		      nodejs-repl
 		      exec-path-from-shell
+		      popwin
 		      ) "Default packages")
 (setq package-selected-packages he/packages)
 (defun he/packages-installed-p ()
@@ -48,6 +49,20 @@
 (setq-default cursor-type 'box)  ;; 光标设为box类型
 (delete-selection-mode t)        ;; 修改光标选中的文本时，会先删掉选中文本，然后才会编辑
 (global-hl-line-mode t)          ;; 突出显示当前行
+(global-auto-revert-mode t)      ;; 如果文件在外部被修改了，并且emacs没有未保存的内容，emacs就会重新加载文件
+(setq auto-save-default nil)     ;; 禁止生成自动保存的文件，例如：#filename#
+
+;; abbrev-mode
+;; 用法：输入缩写+非ASCII码即可输入全名
+(setq-default abbrev-mode t)
+(define-abbrev-table 'global-abbrev-table '(
+					    ("8email" "shi_zhonghe@163.com")
+					    ))
+
+;; config for popwin
+;; 新打开某些buffer时，光标会跳转到该buffer。例如打开帮助文档buffer
+(require 'popwin)
+(popwin-mode t)
 
 ;; org-mode agenda
 ;; 设置默认 Org Agenda 文件目录
