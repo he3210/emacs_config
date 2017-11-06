@@ -41,7 +41,6 @@
 (global-hungry-delete-mode)
 
 ;; 配置smartparens
-(require 'smartparens-config)
 (smartparens-global-mode t)
 
 ;; 配置swiper、counsel，即候选列表插件
