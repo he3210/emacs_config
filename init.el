@@ -13,7 +13,7 @@
 (require 'init-org)
 (require 'init-keybindings)
 
-;; 配置定制化文件路径
-(setq custom-file (expand-file-name "lisp/custom.el" user-emacs-directory))
 
+;; 把定制化的一些配置写到单独的一个el文件中
+(setq custom-file (expand-file-name "lisp/custom.el" user-emacs-directory))
 (load-file custom-file)
