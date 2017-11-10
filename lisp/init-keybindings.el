@@ -23,5 +23,15 @@
 (with-eval-after-load 'dired
   (define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file))
 
+;; 切换web-mode下的缩进，2空格或4空格
+(global-set-key (kbd "C-c t i") 'my-toggle-web-indent)
+
+;; 列出当前buffer的函数名
+(global-set-key (kbd "M-s i") 'counsel-imenu)
+
+;; expand-region
+;; 按 <C-=> 可以进行选择文本，然后按 = 扩大选中区域，按 - 缩小选中区域
+(global-set-key (kbd "C-=") 'er/expand-region)
+
 
 (provide 'init-keybindings)

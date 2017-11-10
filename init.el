@@ -4,6 +4,16 @@
 ;; You may delete these explanatory comments.
 (package-initialize)
 
-(require 'org-install)
-(require 'ob-tangle)
-(org-babel-load-file (expand-file-name "he.org" user-emacs-directory))    ;; org-babel-load-file函数从org文件加载eamcs lisp代码块（先根据org文件生成el文件，然后加载el文件）
+(add-to-list 'load-path "~/.emacs.d/lisp/")
+
+(require 'init-func)
+(require 'init-packages)
+(require 'init-ui)
+(require 'init-better-defaults)
+(require 'init-org)
+(require 'init-keybindings)
+
+
+;; 把定制化的一些配置写到单独的一个el文件中
+(setq custom-file (expand-file-name "lisp/custom.el" user-emacs-directory))
+(load-file custom-file)
