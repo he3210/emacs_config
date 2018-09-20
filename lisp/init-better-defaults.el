@@ -5,14 +5,15 @@
 (setq auto-save-default nil)     ;; 禁止生成自动保存的文件，例如：#filename#
 (delete-selection-mode t)        ;; 修改光标选中的文本时，会先删掉选中文本，然后才会编辑
 (electric-indent-mode t)         ;; 使用自动对齐
+(set-language-environment "UTF-8") ;; 文本编码默认设置为utf-8
 
 
 ;; abbrev-mode
 ;; 用法：输入缩写+非ASCII码即可输入全名
-(setq-default abbrev-mode t)
-(define-abbrev-table 'global-abbrev-table '(
-					    ("8email" "shi_zhonghe@163.com")
-					    ))
+;;(setq-default abbrev-mode t)
+;;(define-abbrev-table 'global-abbrev-table '(
+;;					    ("8email" "shi_zhonghe@163.com")
+;;					    ))
 
 ;; 设置recentf
 (recentf-mode 1)                 ;; 退出emacs时会保存一个最近打开的文件列表

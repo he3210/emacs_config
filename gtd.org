@@ -1,0 +1,9 @@
+
+* 2018
+** 2018-08 August
+*** 2018-08-14 Tuesday
+**** TODO [#B] first work
+DEADLINE: <2018-08-14 Tue 20:00> SCHEDULED: <2018-08-14 Tue 18:14>
+**** TODO [#B] second work
+DEADLINE: <2018-08-14 Tue 21:00> SCHEDULED: <2018-08-14 Tue 20:00>
+**** TODO [#B] third work

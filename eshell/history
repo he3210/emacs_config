@@ -1,0 +1,39 @@
+ll
+ls
+grep "字体" *
+grep -r "字体" *
+ll
+ls
+touch my.css
+ls
+cd ..
+ls
+ls
+cd ..
+ls
+cd img/
+ls
+cd ../..
+ls
+cd org/css/
+ls
+rm my.css
+cp stylesheet.css my.css
+cd org/css/
+mv my.css web.css
+ls
+cd org/css/
+ls
+mkdir css
+cp web.css ./css/
+ls -al
+rm stylesheet.css 
+ls
+cd ..
+ls
+mv link.org links.org
+ls
+ls -al
+cd ..
+ls
+make clean
