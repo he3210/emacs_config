@@ -21,7 +21,8 @@
 (global-set-key (kbd "C-M-\\") 'indent-region-or-buffer)  ;; 改进文本对齐快捷键。该快捷键原先是调用indent-region
 (global-set-key (kbd "s-/") 'hippie-expand)               ;; 自动补全增强，当company-mode补全不理想时，使用该快捷键进行补全
 (global-set-key (kbd "C-c p s") 'helm-do-ag-project-root) ;; 在当前git仓库进行实时搜索，然后输入pattern。然后按 <C-c C-e> 进入编辑模式，可以编辑搜索结果
-(global-set-key (kbd "C-c e n") 'export-my-notes)         ;; 导出 notes 笔记本到 html，export-my-notes 是我自定义的函数
+(global-set-key (kbd "C-c e n") 'export-my-notes-test)    ;; 导出 notes 笔记本到 html，测试环境
+(global-set-key (kbd "C-c e N") 'export-my-notes)         ;; 生产环境
 
 ;; dired mode使用会车进入一个目录时，复用dired buffer，不另外生成一个新的dired buffer
 ;; 函数with-eval-after-load表示当一个feature或file加载后才会执行后续代码

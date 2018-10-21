@@ -73,6 +73,10 @@
 (require 'ox-publish)
 (require 'htmlize)
 
+;; 设置为 css 表示代码配色从 CSS 文件读取
+;; 设置为 inline-css 表示直接把颜色代码写入 html 文件
+;; 使用命令 M-x org-html-htmlize-generate-css 可以在一个新 buffer 生成和 emacs 配色相同的 CSS 文件。然后就可使用该 CSS 对 html 文件进行着色
+(setq org-html-htmlize-output-type 'inline-css)  ;; 导出成 html 时对关键字进行着色的方式
 (setq org-export-with-entities t)   ;; 导出时是否进行转义。查看转义字符命令：M-x org-entities-help。例如：将 org 文档中的 \vbar 转义成 html 中的 |
 
 ;; HTML模板目录
@@ -114,7 +118,7 @@
 	 )
         ("static"
          :base-directory "~/notes/org"
-         :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf\\|txt\\|asc"
+         :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf\\|txt\\|asc\\|ico"
          :publishing-directory "~/notes/html"
          :recursive t
          :publishing-function org-publish-attachment)
