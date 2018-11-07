@@ -12,10 +12,10 @@
 ;; todo 关键字配色
 (setq org-todo-keyword-faces
       '(("TODO" . (:foreground "#FF4500" :weight bold))
-	("DOING" . (:foreground "#33cc33" :weight bold))
-	("DELAY" . (:foreground "black" :weight bold))
+	    ("DOING" . (:foreground "#33cc33" :weight bold))
+	    ("DELAY" . (:foreground "black" :weight bold))
         ("DONE" . (:foreground "#27AE60" :weight bold))
-	))
+	    ))
 
 ;; inbox.org 用于搜集突发临时事件、灵感等，临时记录下来。然后去做其它事情，不至于打断当前工作流程
 ;; gtd.org   我的工作内容，使用了 datetree 作为大纲。每天早上都会记录当天要做的事情
@@ -30,19 +30,19 @@
 ;; %^g 会提示为该 org node 输入 tag
 ;; :empty-lines 1  在该位置插入一个空行
 (setq org-capture-templates '(
-			      ("i" "inbox" entry (file+headline "~/gtd/inbox.org" "inbox")
+			                  ("i" "inbox" entry (file+headline "~/gtd/inbox.org" "inbox")
                                "* TODO [#B] %U %i%?" :empty-lines 1)
                               ("s" "someday" entry (file+headline "~/gtd/someday.org" "some day")
                                "* TODO [#C] %U %i%?" :empty-lines 1)
-			      ("g" "GTD" entry (file+datetree "~/gtd/gtd.org")
-			       "* TODO [#B] %U %i%?" :empty-lines 1)
-			      ))
+			                  ("g" "GTD" entry (file+datetree "~/gtd/gtd.org")
+			                   "* TODO [#B] %U %i%?" :empty-lines 1)
+			                  ))
 
 ;; 为 org-refile 函数设置目标文件
 (setq org-refile-targets '(
                            ("~/gtd/someday.org" :level . 1)
-			   ("~/gtd/gtd.org" :maxlevel . 3)
-			   ))
+			               ("~/gtd/gtd.org" :maxlevel . 3)
+			               ))
 
 ;; Parse a time string D and return a date to pass to the datetree functions
 (defun he/org-read-datetree-date (d)
@@ -54,12 +54,12 @@
   (interactive)
   (require 'org-datetree)
   (let* ((bfn (or bfn (find-file-noselect (expand-file-name "~/gtd/gtd.org"))))
-	 (datetree-date (he/org-read-datetree-date (org-read-date t nil))))
+	     (datetree-date (he/org-read-datetree-date (org-read-date t nil))))
     (org-refile nil nil (list nil (buffer-file-name bfn) nil
-			      (with-current-buffer bfn
-				(save-excursion
-				  (org-datetree-find-date-create datetree-date)
-				  (point)))))))
+			                  (with-current-buffer bfn
+				                (save-excursion
+				                  (org-datetree-find-date-create datetree-date)
+				                  (point)))))))
 
 ;; org-mode agenda
 ;; 设置默认 Org Agenda 文件目录
@@ -82,56 +82,49 @@
 ;; HTML模板目录
 (defvar *site-template-directory* "~/notes/org/templates")
 
-(defun read-html-template (template-file)
-  (with-temp-buffer
-    (insert-file-contents (concat *site-template-directory* "/" template-file))
-    (buffer-string)))
-
 (setq org-publish-project-alist
       '(
-	("org-notes"
+	    ("org-notes"
          :base-directory "~/notes/org"
          :base-extension "org"
          :publishing-directory "~/notes/html"
          :recursive t
          :publishing-function org-html-publish-to-html
          :headline-levels 4
-	 :language "zh-CN"              ;; 设置为 zh-CN 会影响一些东西。比如：目录会显示为汉字
-	 :section-numbers t             ;; 是否为标题编号
-	 :with-toc t                    ;; 是否创建 table of contents
-	 :with-latex t                  ;; 是否可以使用 latex
-	 :html-doctype "html5"          ;; 导出 html5
-	 :with-sub-superscript {}       ;; 禁用 _ 转义成下标，^转义成上标。但加 {} 就可以转义了
-;;	 :html-link-home "file:///Users/he/notes/html/index.html"
-;;	 :html-link-up "file:///Users/he/notes/html/index.html"
-	 :author "时中贺"
-	 :email "shi_zhonghe@163.com"
-	 :preserve-breaks t             ;; 是否保留换行符。如果设置为 nil，导出后就会多行文本显示在一行
-;;	 :creator
-	 :html-head-include-default-style nil  ;; 取消默认的 css
-	 :html-head-include-scripts nil        ;; 取消默认的 javascript 代码
+	     :language "zh-CN"              ;; 设置为 zh-CN 会影响一些东西。比如：目录会显示为汉字
+	     :section-numbers t             ;; 是否为标题编号
+	     :with-toc t                    ;; 是否创建 table of contents
+	     :with-latex t                  ;; 是否可以使用 latex
+	     :html-doctype "html5"          ;; 导出 html5
+	     :with-sub-superscript {}       ;; 禁用 _ 转义成下标，^转义成上标。但加 {} 就可以转义了
+         ;;	 :html-link-home "file:///Users/he/notes/html/index.html"
+         ;;	 :html-link-up "file:///Users/he/notes/html/index.html"
+	     :author "时中贺"
+	     :email "shi_zhonghe@163.com"
+	     :preserve-breaks t             ;; 是否保留换行符。如果设置为 nil，导出后就会多行文本显示在一行
+         ;;	 :creator
+	     :html-head-include-default-style nil  ;; 取消默认的 css
+	     :html-head-include-scripts nil        ;; 取消默认的 javascript 代码
          ;; css 文件如果修改了，就需要重新加载该 el 文件，这样才能看到 html 样式的变化
-;;	 :html-head "<link rel=\"stylesheet\" type=\"text/css\" href=\"file:///Users/he/notes/html/css/style.css\" />"
-;;	 :html-head-extra "<script src=\"file:///Users/he/notes/html/css/default.js\" type=\"text/javascript\"></script>"
-	 :exclude "test*\\|.*\.test\.org"      ;; test 为前缀的文件和文件夹都不导出 html
-	 :include ("./test/math.org" "./test/worg.org" "./test/o-blog.org")          ;; 虽然 math.org 在 test 文件夹里，但依然会导出到 html，显然 include 比 exclude 优先
-	 )
+         ;;	 :html-head "<link rel=\"stylesheet\" type=\"text/css\" href=\"file:///Users/he/notes/html/css/style.css\" />"
+         ;;	 :html-head-extra "<script src=\"file:///Users/he/notes/html/css/default.js\" type=\"text/javascript\"></script>"
+	     :exclude "test*\\|.*\.test\.org"      ;; test 为前缀的文件和文件夹都不导出 html
+	     :include ("./test/math.org" "./test/worg.org" "./test/o-blog.org")          ;; 虽然 math.org 在 test 文件夹里，但依然会导出到 html，显然 include 比 exclude 优先
+	     )
         ("static"
          :base-directory "~/notes/org"
-         :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf\\|txt\\|asc\\|ico"
+         :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf\\|txt\\|asc\\|ico\\|tar"
          :publishing-directory "~/notes/html"
          :recursive t
          :publishing-function org-publish-attachment)
         ("notes" :components ("org-notes" "static"))
-	))
+	    ))
 
-;;; 设置CSS样式
+;; css 文件如果修改了，就需要重新加载该 el 文件，这样才能看到 html 样式的变化
+;; html-head.html 文件用来设置 html 的 <head> 部分。该文件中引入了 CSS 文件
+;; preamble.html 文件包含导航栏 html、谷歌搜索
+;; postamble.html 文件包含了网站声明、引入了 js 文件
 (setq org-html-head (read-html-template "html-head.html"))
-;;; 取消默认的CSS
-;;(setq org-html-head-include-default-style nil)
-;;; 取消默认的Javascript代码
-;;(setq org-html-head-include-scripts nil)
-;;; XXX 用org-html-head可以设置<head>部分
 (setq org-html-preamble (read-html-template "preamble.html"))
 (setq org-html-postamble (read-html-template "postamble.html"))
 
