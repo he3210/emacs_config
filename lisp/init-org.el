@@ -108,8 +108,8 @@
          ;; css 文件如果修改了，就需要重新加载该 el 文件，这样才能看到 html 样式的变化
          ;;	 :html-head "<link rel=\"stylesheet\" type=\"text/css\" href=\"file:///Users/he/notes/html/css/style.css\" />"
          ;;	 :html-head-extra "<script src=\"file:///Users/he/notes/html/css/default.js\" type=\"text/javascript\"></script>"
-	     :exclude "test*\\|.*\.test\.org"      ;; test 为前缀的文件和文件夹都不导出 html
-	     :include ("./test/math.org" "./test/worg.org" "./test/o-blog.org")          ;; 虽然 math.org 在 test 文件夹里，但依然会导出到 html，显然 include 比 exclude 优先
+	     ;;:exclude "test*\\|.*\.test\.org"      ;; test 为前缀的文件和文件夹都不导出 html
+	     ;;:include ("./test/math.org" "./test/worg.org" "./test/o-blog.org")          ;; 虽然 math.org 在 test 文件夹里，但依然会导出到 html，显然 include 比 exclude 优先
 	     )
         ("static"
          :base-directory "~/notes/org"

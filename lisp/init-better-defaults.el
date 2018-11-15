@@ -65,9 +65,9 @@
 (defun indent-region-or-buffer()
   "Indent a region if selected, otherwise the whole buffer."
   (interactive)
-  ;; save-excursion 函数保存当前buffer和当前光标位置，执行完其包含的代码段后恢复buffer和光标位置
-  ;; region-active-p 如果Transient-Mark Mode打开，并且mark处于激活状态（即处于选中状态下），该函数返回非空
-  ;; region-beginning 函数返回选中区域起始位置，region-end函数返回末尾位置
+  ;; save-excursion 函数保存当前 buffer 和当前光标位置，执行完其包含的代码段后恢复 buffer 和光标位置
+  ;; region-active-p 如果 Transient-Mark Mode 打开，并且 mark 处于激活状态（即处于选中状态下），该函数返回非空
+  ;; region-beginning 函数返回选中区域起始位置，region-end 函数返回末尾位置
   (save-excursion
     (if(region-active-p)
 	    (progn

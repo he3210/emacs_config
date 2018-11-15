@@ -19,9 +19,7 @@
   (if(not window-system)
       (reload-solarized-termcolors 256))
 
-  ;; 导出 notes 到 html
-  ;;(load-file "~/.emacs.d/lisp/init-org.el")  ;; 需要重新加载 init-org.el，否则 css 等文件修改后无法重新发布
-  (org-publish-project "notes" is-force nil)
+  (save-excursion (org-publish-project "notes" is-force nil)) ;; 导出 notes 到 html。is-force 表示是否强制导出，nil 表示不使用异步
 
   ;; 导出完毕后，配色再改回来，防止 solarized 在终端中颜色混乱
   (if(not window-system)
