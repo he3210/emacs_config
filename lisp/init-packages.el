@@ -32,6 +32,8 @@
 		                                iedit
 		                                org-pomodoro
 		                                helm-ag
+                                        auto-highlight-symbol  ;; 相同符号高亮
+                                        google-translate
 		                                htmlize
                                         ;; org-bullets
 		                                )))
@@ -121,5 +123,25 @@
 ;; org-bullets
 ;;(require 'org-bullets)
 ;;(add-hook 'org-mode-hook 'org-bullets-mode)
+
+;; auto-highlight-symbol
+(add-hook 'org-mode-hook 'auto-highlight-symbol-mode)
+(add-hook 'emacs-lisp-mode-hook 'auto-highlight-symbol-mode)
+(add-hook 'c-mode-hook 'auto-highlight-symbol-mode)
+(add-hook 'c++-mode-hook 'auto-highlight-symbol-mode)
+
+;; google-translate
+(require 'google-translate)
+(require 'google-translate-smooth-ui)
+;; 翻译方向列表，在 mini buffer 中更换翻译方向使用 C-n 或 C-p
+(setq google-translate-translation-directions-alist
+      '(("en" . "zh-CN") ("zh-CN" . "en") ))
+;; emacs 使用代理的话，需要借助一个工具 proxychains
+;; 如果不使用代理的话，就修改 google 翻译的网址：http://translate.google.cn，添加如下配置
+(eval-after-load 'google-translate-core
+  '(setq google-translate-base-url "http://translate.google.cn/translate_a/single"
+         google-translate-listen-url "http://translate.google.cn/translate_tts"))
+(eval-after-load 'google-translate-tk
+  '(setq google-translate--tkk-url "http://translate.google.cn/"))
 
 (provide 'init-packages)

@@ -23,6 +23,7 @@
 (global-set-key (kbd "C-c p s") 'helm-do-ag-project-root) ;; 在当前 git 仓库进行实时搜索，然后输入 pattern。然后按 <C-c C-e> 进入编辑模式，可以编辑搜索结果
 (global-set-key (kbd "C-c e n") 'export-my-notes-test)    ;; 导出 notes 笔记本到 html，测试环境
 (global-set-key (kbd "C-c e N") 'export-my-notes)         ;; 生产环境
+(global-set-key (kbd "C-c g") 'google-translate-smooth-translate)  ;; 选中内容，然后按该快捷键进行 google 翻译。在 mini buffer 中按 C-n 或 C-p 来选择翻译方向
 
 ;; dired mode 使用会车进入一个目录时，复用 dired buffer，不另外生成一个新的 dired buffer
 ;; 函数 with-eval-after-load 表示当一个feature或file加载后才会执行后续代码
