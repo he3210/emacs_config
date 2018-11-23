@@ -26,7 +26,7 @@
 (global-set-key (kbd "C-c g") 'google-translate-smooth-translate)  ;; 选中内容，然后按该快捷键进行 google 翻译。在 mini buffer 中按 C-n 或 C-p 来选择翻译方向
 
 ;; dired mode 使用会车进入一个目录时，复用 dired buffer，不另外生成一个新的 dired buffer
-;; 函数 with-eval-after-load 表示当一个feature或file加载后才会执行后续代码
+;; 函数 with-eval-after-load 表示当一个 feature 或 file 加载后才会执行后续代码
 (with-eval-after-load 'dired
   (define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file))
 

@@ -113,7 +113,7 @@
 	     )
         ("static"
          :base-directory "~/notes/org"
-         :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf\\|txt\\|asc\\|ico\\|tar"
+         :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf\\|txt\\|asc\\|ico\\|tar\\|bmp"
          :publishing-directory "~/notes/html"
          :recursive t
          :publishing-function org-publish-attachment)

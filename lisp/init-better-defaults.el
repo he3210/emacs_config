@@ -30,7 +30,7 @@
 (setq c-basic-offset 4)
 
 ;; abbrev-mode
-;; 用法：输入缩写+非ASCII码即可输入全名
+;; 用法：输入缩写+非 ASCII 码即可输入全名
 ;;(setq-default abbrev-mode t)
 ;;(define-abbrev-table 'global-abbrev-table '(
 ;;					    ("8email" "shi_zhonghe@163.com")
@@ -42,8 +42,8 @@
       scroll-conservatively 10000)
 
 ;; 设置recentf
-(recentf-mode 1)                 ;; 退出emacs时会保存一个最近打开的文件列表
-(setq recentf-max-menu-items 20) ;; recentf列表最大长度
+(recentf-mode 1)                 ;; 退出 emacs 时会保存一个最近打开的文件列表
+(setq recentf-max-menu-items 20) ;; recentf 列表最大长度
 
 (defun hidden-dos-eol()
   "Do not show ^M in files containing mixed UNIX and DOS line endings."
@@ -60,7 +60,7 @@
 (defun indent-buffer()
   "Indent the currently visited buffer."
   (interactive)
-  (indent-region (point-min) (point-max)))    ;; point-min表示buffer开始位置，point-max表示buffer末尾位置
+  (indent-region (point-min) (point-max)))    ;; point-min 表示 buffer 开始位置，point-max 表示 buffer 末尾位置
 
 (defun indent-region-or-buffer()
   "Indent a region if selected, otherwise the whole buffer."
@@ -79,8 +79,8 @@
 
 ;; 设置 hippie-expand 自动补全的尝试补全选项。越靠上，越优先补全
 (setq hippie-expand-try-functions-list '(
-                                         try-expand-dabbrev                  ;; 本buffer所有单词
-					                     try-expand-dabbrev-all-buffers      ;; 全部buffer中的所有单词
+                                         try-expand-dabbrev                  ;; 本 buffer 所有单词
+					                     try-expand-dabbrev-all-buffers      ;; 全部 buffer 中的所有单词
 					                     try-expand-dabbrev-from-kill
 					                     try-complete-file-name-partially    ;; 补全文件名，匹配优先
 					                     try-complete-file-name              ;; 补全文件名
@@ -91,17 +91,17 @@
 					                     try-complete-lisp-symbol))
 
 (fset 'yes-or-no-p 'y-or-n-p)             ;; yes or no 改为 y or n
-(setq dired-recursive-deletes 'always)    ;; dired-mode删除一个目录时，递归删除
-(setq dired-recursive-copies 'always)     ;; dired-mode拷贝一个目录时，递归拷贝
+(setq dired-recursive-deletes 'always)    ;; dired-mode 删除一个目录时，递归删除
+(setq dired-recursive-copies 'always)     ;; dired-mode 拷贝一个目录时，递归拷贝
 
-;; 不生成新的dired buffer
+;; 不生成新的 dired buffer
 (put 'dired-find-alternate-file 'disabled nil)
 
-;; 加载dired-x后可以使用快捷键 C-x C-j 直接打开当前buffer文件所在目录
+;; 加载 dired-x 后可以使用快捷键 C-x C-j 直接打开当前 buffer 文件所在目录
 (require 'dired-x)
 
-;; dired尝试猜测默认的目录
-;; 例如：两个dired buffer窗口，在一个dired窗口按C进行复制文件，复制时给出的默认目标目录为另外一个dired buffer所在的目录
+;; dired 尝试猜测默认的目录
+;; 例如：两个 dired buffer 窗口，在一个 dired 窗口按 C 进行复制文件，复制时给出的默认目标目录为另外一个 dired buffer 所在的目录
 (setq dired-dwim-target t)
 
 
