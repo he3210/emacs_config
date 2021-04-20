@@ -3,7 +3,7 @@
   (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
   )
 
-(require 'cl)
+(require 'cl-lib)
 ;; add whatever packages you want here
 
 ;; 定义一个存放 packages 的列表，根据 window-system 来添加不同的包
@@ -40,9 +40,9 @@
 (setq package-selected-packages he/packages)
 
 (defun he/packages-installed-p ()
-  (loop for pkg in he/packages
-	    when (not (package-installed-p pkg)) do (return nil)
-	    finally (return t)))
+  (cl-loop for pkg in he/packages
+	    when (not (package-installed-p pkg)) do (cl-return nil)
+	    finally (cl-return t)))
 
 (unless (he/packages-installed-p)
   (message "%s" "Refreshing package database...")

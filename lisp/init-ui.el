@@ -1,5 +1,5 @@
 (tool-bar-mode -1)               ;; 关闭工具栏
-(scroll-bar-mode -1)             ;; 关闭 scroll-bar
+;;(scroll-bar-mode -1)             ;; 关闭 scroll-bar，新版本没有该配置了
 (menu-bar-mode -1)               ;; 关闭菜单栏。terminal 下的 emacs 会有菜单栏
 (setq inhibit-splash-screen t)   ;; 关闭启动页面
 (setq-default cursor-type 'box)  ;; 光标设为 box 类型

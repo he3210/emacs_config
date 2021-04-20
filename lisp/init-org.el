@@ -1,5 +1,6 @@
 
 (require 'org)
+(require 'org-tempo)                ;; 引入后，可以使用 <s TAB 功能
 (setq org-src-fontify-natively t)   ;; 对 begin_src 中的代码语法高亮
 (setq org-startup-indented t)       ;; 使 org 文档根据大纲进行缩进
 (add-hook 'org-mode-hook 'toggle-truncate-lines)  ;; 超出屏幕的长行会在下一行显示，它们虽显示在两行上但实际上是一行。缺点：英文单词可能会被截断
