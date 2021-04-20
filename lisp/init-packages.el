@@ -3,7 +3,7 @@
   (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
   )
 
-(require 'cl-lib)
+(require 'cl-lib)                 ;; cl 已经弃用，使用 cl-lib 替换 cl
 ;; add whatever packages you want here
 
 ;; 定义一个存放 packages 的列表，根据 window-system 来添加不同的包

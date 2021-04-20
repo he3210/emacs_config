@@ -41,7 +41,7 @@
       (export-my-notes-internal t)
       )
     )
-  (incf *call-export-my-notes-count*)  ;; 自增 1
+  (cl-incf *call-export-my-notes-count*)  ;; 自增 1
   )
 
 (defun export-my-notes()
@@ -58,7 +58,7 @@
       (export-my-notes-internal t)
       )
     )
-  (incf *call-export-my-notes-count*)
+  (cl-incf *call-export-my-notes-count*)
   )
 
 ;; bounds 是含有 2 个元素的列表，表示取值范围。例如 (1 1.9)。用 (a b) 表示

@@ -18,7 +18,7 @@
    "/Users/he/.emacs.d/elpa/org-pomodoro-20171108.1314/resources/tick.wav")
  '(org-pomodoro-start-sound-p t)
  '(package-selected-packages
-   '(kiwix company-math org-pomodoro color-theme-solarized helm htmlize company hungry-delete swiper counsel smartparens nodejs-repl exec-path-from-shell popwin reveal-in-osx-finder web-mode expand-region iedit helm-ag))
+   '(ob-go kiwix company-math org-pomodoro color-theme-solarized helm htmlize company hungry-delete swiper counsel smartparens nodejs-repl exec-path-from-shell popwin reveal-in-osx-finder web-mode expand-region iedit helm-ag))
  '(show-paren-mode t)
  '(tool-bar-mode nil))
 (custom-set-faces
