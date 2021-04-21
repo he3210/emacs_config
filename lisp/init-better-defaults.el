@@ -139,5 +139,4 @@
 	      (lambda ()
 	        (setq imenu-create-index-function 'js2-imenu-make-index)))
 
-
 (provide 'init-better-defaults)
