@@ -30,7 +30,7 @@
 (defun export-my-notes-test()
   (interactive)
   (if (and (> *call-export-my-notes-count* 0) (equal *site-template-directory* "~/notes/org/templates-test"))
-      (progn  ;; 如果连续 2 次导出到测试环境，说明第二次导出时已经时测试环境了，所以就可以使用缓存文件而不必强制重新导出所有文件了
+      (progn  ;; 如果连续 2 次导出到测试环境，说明第二次导出时已经是测试环境了，所以就可以使用缓存文件而不必强制重新导出所有文件了
         (export-my-notes-internal nil)
         )
     (progn  ;; 否则，修改环境变量，并强制重新导出所有文件
@@ -47,7 +47,7 @@
 (defun export-my-notes()
   (interactive)
   (if (and (> *call-export-my-notes-count* 0) (equal *site-template-directory* "~/notes/org/templates"))
-      (progn  ;; 如果连续 2 次导出到生产环境，说明第二次导出时已经时生产环境了，所以就可以使用缓存文件而不必强制重新导出所有文件了
+      (progn  ;; 如果连续 2 次导出到生产环境，说明第二次导出时已经是生产环境了，所以就可以使用缓存文件而不必强制重新导出所有文件了
         (export-my-notes-internal nil)
         )
     (progn  ;; 否则修改环境变量，强制导出

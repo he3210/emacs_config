@@ -97,6 +97,7 @@
          :base-directory "~/notes/org"
          :base-extension "org"
          :publishing-directory "~/notes/html"
+         :exclude "doki notebook"
          :recursive t
          :publishing-function org-html-publish-to-html
          :headline-levels 4
